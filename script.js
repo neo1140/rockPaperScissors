@@ -16,28 +16,35 @@ else {
 // Function to determine winner of a round
 function round(playerSelection, computerSelection) {
    if (playerSelection === computerSelection) {
-       return "tie";
+    console.log("It's a tie!");   
+    return "tie";
    }
    else if (playerSelection === "rock" && computerSelection === "scissors") {
-       return "win";
+    console.log("You win, Rock beats Scissors!");
+    return "win";   
    }
    else if (playerSelection === "rock" && computerSelection === "paper") {
-       return "lose";
+    console.log("You lose, Paper beats Rock!");   
+    return "lose";
    }
    else if (playerSelection === "paper" && computerSelection === "rock") {
+    console.log("You win, Rock beats Scissors!");
     return "win";
 }
    else if (playerSelection === "paper" && computerSelection === "scissors") {
+    console.log("You lose, Scissors beats Paper!");
     return "lose";
 }
    else if (playerSelection === "scissors" && computerSelection === "paper") {
+    console.log("You win, Scissors beats Paper!");
     return "win";
 }
    else if (playerSelection === "scissors" && computerSelection === "rock") {
+    console.log("You lose, Rock beats Scissors!");
     return "lose";
    }
-   else {
-       return "bad input";
+   else { 
+    return "bad input";
    }
 
 }   
@@ -51,9 +58,10 @@ function game() {
    
 while(i < 5) {
     let winOrLose = round(prompt('enter rock, paper, or scissors').toLowerCase(), computerPlay());
-    console.log(winOrLose);
-    
-  if (winOrLose === "win") {
+    if(winOrLose === "bad input") {
+        console.log("Bad input, please choose rock, paper, or scissors!");
+    }
+  else if (winOrLose === "win") {
       win ++;
       i++;
   }
