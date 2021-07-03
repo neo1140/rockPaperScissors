@@ -1,3 +1,7 @@
+// Declaring global variables for scores
+let playerScore = 0;
+let compScore = 0;
+
 // Function to generate a random number 
 // and use it to determine computers play
 function computerPlay() {
@@ -15,44 +19,80 @@ else {
 }
 // Function to determine winner of a round
 function round(playerSelection, computerSelection) {
+const results = document.querySelector('#results');
+const scoreboard = document.querySelector('#scoreboard');
    if (playerSelection === computerSelection) {
-    console.log("It's a tie!");   
+    results.textContent = "It's a tie!"; 
+    results.style.color = 'black';
     return "tie";
    }
    else if (playerSelection === "rock" && computerSelection === "scissors") {
-    console.log("You win, Rock beats Scissors!");
-    return "win";   
+    results.textContent = "You win, Rock beats Scissors!";
+    results.style.color = 'green';
+    playerScore ++;
+    scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
    }
    else if (playerSelection === "rock" && computerSelection === "paper") {
-    console.log("You lose, Paper beats Rock!");   
-    return "lose";
+    results.textContent = "You lose, Paper beats Rock!";
+    results.style.color = 'red';
+    compScore ++;
+    scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
    }
    else if (playerSelection === "paper" && computerSelection === "rock") {
-    console.log("You win, Rock beats Scissors!");
-    return "win";
+    results.textContent = "You win, Rock beats Scissors!";
+    results.style.color = 'green';
+    playerScore ++;
+    scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
 }
    else if (playerSelection === "paper" && computerSelection === "scissors") {
-    console.log("You lose, Scissors beats Paper!");
-    return "lose";
+    results.textContent = "You lose, Scissors beats Paper!";
+    results.style.color = 'red';
+    compScore ++;
+    scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
 }
    else if (playerSelection === "scissors" && computerSelection === "paper") {
-    console.log("You win, Scissors beats Paper!");
-    return "win";
+    results.textContent = "You win, Scissors beats Paper!";
+    results.style.color = 'green';
+    playerScore ++;
+    scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
 }
    else if (playerSelection === "scissors" && computerSelection === "rock") {
-    console.log("You lose, Rock beats Scissors!");
-    return "lose";
+    results.textContent = "You lose, Rock beats Scissors!";
+    results.style.color = 'red';
+    compScore ++;
+    scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
    }
-   else { 
-    return "bad input";
-   }
-
+gameEnd(playerScore, compScore);
 }   
+
+//adding event listener to buttons, playing a round each time one is clicked
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
 button.addEventListener('click', () => round(button.id, computerPlay()));
 })
+
+//Function to handle game ending;
+function gameEnd(playerScore, compScore) {
+
+const message = document.querySelector('#results');
+
+    if(playerScore >= 5) {
+    alert('You win, Congratulations!');
+    playerScore = 0;
+    compScore = 0;
+    scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
+    message.textContent = 'Good job! Want to play again?'
+    }
+    
+    if(compScore >= 5) {
+    alert('I\m sorry, you lost this time!');
+    playerScore = 0;
+    compScore = 0;
+    scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
+    message.textContent = 'Better luck next time! Want to play again?'
+    }
+}
 
 //Function to determine winner of a 5 round game
 function game() {
