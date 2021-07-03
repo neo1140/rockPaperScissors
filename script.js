@@ -61,15 +61,15 @@ while(i < 5) {
     if(winOrLose === "bad input") {
         console.log("Bad input, please choose rock, paper, or scissors!");
     }
-  else if (winOrLose === "win") {
+    else if (winOrLose === "win") {
       win ++;
       i++;
-  }
-  else if (winOrLose === "lose") {
+    }
+    else if (winOrLose === "lose") {
       lose ++;
       i++;
   }
-  else {
+    else {
       draw ++;
       i++;
   }
