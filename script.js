@@ -62,7 +62,11 @@ const scoreboard = document.querySelector('#scoreboard');
     compScore ++;
     scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
    }
-gameEnd(playerScore, compScore);
+if (gameEnd(playerScore, compScore)) {
+playerScore = 0;
+compScore = 0;
+}
+
 }   
 
 //adding event listener to buttons, playing a round each time one is clicked
@@ -83,6 +87,7 @@ const message = document.querySelector('#results');
     compScore = 0;
     scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
     message.textContent = 'Good job! Want to play again?'
+    return true;
     }
     
     if(compScore >= 5) {
@@ -91,42 +96,6 @@ const message = document.querySelector('#results');
     compScore = 0;
     scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
     message.textContent = 'Better luck next time! Want to play again?'
+    return true;
     }
-}
-
-//Function to determine winner of a 5 round game
-function game() {
-    let win = 0;
-    let lose = 0;
-    let draw = 0;
-    let i = 0;
-   
-while(i < 5) {
-    let winOrLose = round(prompt('enter rock, paper, or scissors').toLowerCase(), computerPlay());
-    if(winOrLose === "bad input") {
-        console.log("Bad input, please choose rock, paper, or scissors!");
-    }
-    else if (winOrLose === "win") {
-      win ++;
-      i++;
-    }
-    else if (winOrLose === "lose") {
-      lose ++;
-      i++;
-  }
-    else {
-      draw ++;
-      i++;
-  }
-}
-  if (win > lose) {
-      alert('You won!');
-  }
-  else if (lose > win) {
-      alert('You lose!');
-  }
-  else {
-      alert('It\'s a draw!');
-  }
-  console.log(`Wins: ${win} Losses: ${lose} Draws: ${draw}`);
 }
