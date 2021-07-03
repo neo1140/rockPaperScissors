@@ -48,6 +48,11 @@ function round(playerSelection, computerSelection) {
    }
 
 }   
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+button.addEventListener('click', () => round(button.id, computerPlay()));
+})
 
 //Function to determine winner of a 5 round game
 function game() {
