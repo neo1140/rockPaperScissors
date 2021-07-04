@@ -1,0 +1,39 @@
+body{
+display: flex;
+flex-direction: column;
+background-color: rgb(12, 53, 80);
+align-content: space-between;
+height: 90vh;
+justify-content: space-evenly;
+}
+h1{
+text-align: center;
+color: rgb(203, 213, 214);
+}
+.container{
+display: flex;
+justify-content:center;
+align-content: center;
+}
+
+button{
+width: 30%;
+height: 100px;
+margin: 30px;
+font-size: 25px;
+background-color: rgb(203, 213, 214);
+}
+
+#results{
+text-align: center;
+margin: 5px;
+font-size: 25px;
+color: rgb(203, 213, 214);
+}
+
+#scoreboard{
+text-align: center;
+margin: 5px;
+font-size: 30px;
+color: rgb(203, 213, 214);
+}

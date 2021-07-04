@@ -23,12 +23,12 @@ const results = document.querySelector('#results');
 const scoreboard = document.querySelector('#scoreboard');
    if (playerSelection === computerSelection) {
     results.textContent = "It's a tie!"; 
-    results.style.color = 'black';
+    results.style.color = 'rgb(203, 213, 214)';
     return "tie";
    }
    else if (playerSelection === "rock" && computerSelection === "scissors") {
     results.textContent = "You win, Rock beats Scissors!";
-    results.style.color = 'green';
+    results.style.color = 'lightgreen';
     playerScore ++;
     scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
    }
@@ -39,8 +39,8 @@ const scoreboard = document.querySelector('#scoreboard');
     scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
    }
    else if (playerSelection === "paper" && computerSelection === "rock") {
-    results.textContent = "You win, Rock beats Scissors!";
-    results.style.color = 'green';
+    results.textContent = "You win, Paper beats Rock!";
+    results.style.color = 'lightgreen';
     playerScore ++;
     scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
 }
@@ -52,7 +52,7 @@ const scoreboard = document.querySelector('#scoreboard');
 }
    else if (playerSelection === "scissors" && computerSelection === "paper") {
     results.textContent = "You win, Scissors beats Paper!";
-    results.style.color = 'green';
+    results.style.color = 'lightgreen';
     playerScore ++;
     scoreboard.textContent = `Score Player = ${playerScore} Computer = ${compScore}`
 }
